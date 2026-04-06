@@ -13,13 +13,12 @@ public:
         this->tacgia = tacgia;
         this->soluong = soluong;
     }
-
     virtual void nhap() {
+        cin.ignore();
         cout << "Ma sach: "; getline(cin, ma);
         cout << "Ten sach: "; getline(cin, ten);
         cout << "Tac gia: "; getline(cin, tacgia);
         cout << "So luong: "; cin >> soluong;
-        cin.ignore();
     }
     virtual void xuat() {
         cout << "Ma: " << ma
@@ -27,12 +26,9 @@ public:
              << " - Tac gia: " << tacgia
              << " - SL: " << soluong;
     }
-    string getMa() {
-        return ma;}
-    string getTen() {
-         return ten; }
-    int getSoLuong() {
-         return soluong; }
+    string getMa() { return ma; }
+    string getTen() { return ten; }
+    int getSoLuong() { return soluong; }
     void setSoLuong(int sl) { soluong = sl; }
     virtual ~Sach() {}
 };
@@ -124,10 +120,11 @@ public:
 };
 
 const int MAX = 100;
-Sach* dsSach[MAX];     
+Sach* dsSach[MAX];      
 DocGia dsDocGia[MAX];
 Muon dsMuon[MAX];
 int soSach = 0, soDocGia = 0, soMuon = 0;
+
 void themSach() {
     int loai;
     cout << "Chon loai sach:\n";
@@ -266,6 +263,7 @@ int main() {
             default: cout << "Lua chon khong hop le!\n";
         }
     } while (chon != 0);
+
     for (int i = 0; i < soSach; i++)
         delete dsSach[i];
 
