@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-// NGUYEN MANH CUONG
+// Nguyễn Mạnh Cường
 // Lớp cha sách
 class Sach {
 protected:
@@ -45,8 +45,8 @@ public:
     virtual ~Sach() {}
 };
 
-// NGUYEN HUY HOANG
-// 3 lớp con kế thừa Sach
+// Nguyễn Huy Hoàng
+// 3 lớp con kế thừa lớp cha Sach
 class SachGiaoKhoa : public Sach {
 private:
     string monHoc, lop;
@@ -109,7 +109,7 @@ public:
     }
 };
 
-// LE QUANG HUY
+// Lê Quang Huy
 // Lớp DocGia + Lớp Muon + Mảng + Hàm quản lý
 class DocGia {
 private:
@@ -180,7 +180,7 @@ void hienThiSach() {
         dsSach[i]->xuat();
 }
 
-// NGUYEN ANH VU
+// Nguyễn Anh Vũ
 // Hàm xử lý sách + mượn trả
 void xoaSach() {
     string ma;
@@ -281,7 +281,7 @@ void hienThiMuon() {
         dsMuon[i].xuat();
 }
 
-// NGUYEN MANH CUONG
+// Nguyễn Mạnh Cường
 // main
 int main() {
     int chon;
