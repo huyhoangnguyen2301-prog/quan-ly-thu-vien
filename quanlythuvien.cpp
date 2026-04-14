@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-//  NGUYỄN MẠNH CƯỜNG
-// Lớp cha sách : 
+// NGUYEN MANH CUONG
+// Lớp cha sách
 class Sach {
 protected:
     string ma, ten, tacgia;
@@ -17,9 +17,12 @@ public:
     }
     virtual void nhap() {
         cin.ignore();
-        cout << "Ma sach: ";  getline(cin, ma);
-        cout << "Ten sach: "; getline(cin, ten);
-        cout << "Tac gia: ";  getline(cin, tacgia);
+        cout << "Ma sach: ";
+        getline(cin, ma);
+        cout << "Ten sach: ";
+        getline(cin, ten);
+        cout << "Tac gia: ";
+        getline(cin, tacgia);
         do {
             cout << "So luong: "; cin >> soluong;
             if (soluong <= 0)
@@ -27,20 +30,23 @@ public:
         } while (soluong <= 0);
     }
     virtual void xuat() {
-        cout << "- Ma: "        << ma
-             << " - Ten: "    << ten
+        cout << "- Ma: "       << ma
+             << " - Ten: "     << ten
              << " - Tac gia: " << tacgia
-             << " - SL: "     << soluong;
+             << " - SL: "      << soluong;
     }
-    string getMa()       { return ma; }
-    string getTen()      { return ten; }
-    int getSoLuong()     { return soluong; }
+    string getMa() {
+         return ma; }
+    string getTen() {
+         return ten; }
+    int getSoLuong(){
+         return soluong; }
     void setSoLuong(int sl) { soluong = sl; }
     virtual ~Sach() {}
 };
 
-//  NGUYỄN HUY HOÀNG
-// Lớp con 1 : sách giáo khoa
+// NGUYEN HUY HOANG
+// 3 lớp con kế thừa Sach
 class SachGiaoKhoa : public Sach {
 private:
     string monHoc, lop;
@@ -48,35 +54,36 @@ public:
     void nhap() override {
         Sach::nhap();
         cout << "Mon hoc: ";
-        cin.ignore(); 
+        cin.ignore();
         getline(cin, monHoc);
-        cout << "Lop: ";                   
+        cout << "Lop: ";
         getline(cin, lop);
     }
     void xuat() override {
         Sach::xuat();
-        cout << " - Mon: " << monHoc << " - Lop: " << lop << endl;
+        cout << " - Mon: "  << monHoc
+             << " - Lop: "  << lop
+             << endl;
     }
 };
 
-//  Lớp con 2 : sách văn học 
 class SachVanHoc : public Sach {
 private:
     string theLoai;
 public:
     void nhap() override {
         Sach::nhap();
-        cin.ignore(); 
+        cin.ignore();
         cout << "The loai (tieu thuyet/tho/truyen ngan): ";
         getline(cin, theLoai);
     }
     void xuat() override {
         Sach::xuat();
-        cout << " - The loai: " << theLoai << endl;
+        cout << " - The loai: " << theLoai
+             << endl;
     }
 };
 
-// lớp con 3 : sách khoa học
 class SachKhoaHoc : public Sach {
 private:
     string linhVuc;
@@ -84,24 +91,26 @@ private:
 public:
     void nhap() override {
         Sach::nhap();
-        cout << "Linh vuc: "; 
-        cin.ignore(); 
+        cout << "Linh vuc: ";
+        cin.ignore();
         getline(cin, linhVuc);
         do {
-            cout << "Nam xuat ban: "; cin >> namXuatBan;
+            cout << "Nam xuat ban: ";
+            cin >> namXuatBan;
             if (namXuatBan <= 0)
                 cout << "Nam xuat ban phai > 0, nhap lai!\n";
         } while (namXuatBan <= 0);
     }
     void xuat() override {
         Sach::xuat();
-        cout << " - Linh vuc: " << linhVuc << " - Nam XB: "   << namXuatBan << endl;
+        cout << " - Linh vuc: " << linhVuc
+             << " - Nam XB: "   << namXuatBan
+             << endl;
     }
 };
 
-
-// NGUYỄN ANH VŨ
-// Lớp độc giả : 
+// LE QUANG HUY
+// Lớp DocGia + Lớp Muon + Mảng + Hàm quản lý
 class DocGia {
 private:
     string ma, ten, sdt;
@@ -110,30 +119,34 @@ public:
         cin.ignore();
         cout << "Ma doc gia: ";
         getline(cin, ma);
-        cout << "Ten: ";       
+        cout << "Ten: "; 
         getline(cin, ten);
-        cout << "SDT: ";        
+        cout << "SDT: ";
         getline(cin, sdt);
     }
     void xuat() {
-        cout << "Ma: "<< ma << " - Ten: " << ten << " - SDT: " << sdt << endl;
+        cout << "Ma: "     << ma
+             << " - Ten: " << ten
+             << " - SDT: " << sdt << endl;
     }
-    string getMa() {
-        return ma; 
-    }
+    string getMa(){
+         return ma; }
 };
 
-// Lớp mượn :
 class Muon {
 private:
     string maDocGia, maSach, ngayMuon, ngayTra;
 public:
     void nhap() {
         cin.ignore();
-        cout << "Ma doc gia: "; getline(cin, maDocGia);
-        cout << "Ma sach: ";    getline(cin, maSach);
-        cout << "Ngay muon: ";  getline(cin, ngayMuon);
-        cout << "Ngay tra: ";   getline(cin, ngayTra);
+        cout << "Ma doc gia: ";
+        getline(cin, maDocGia);
+        cout << "Ma sach: "; 
+        getline(cin, maSach);
+        cout << "Ngay muon: "; 
+        getline(cin, ngayMuon);
+        cout << "Ngay tra: ";
+        getline(cin, ngayTra);
     }
     void xuat() {
         cout << "Doc gia: " << maDocGia
@@ -144,15 +157,63 @@ public:
     string getMaSach() { return maSach; }
 };
 
-// dữ liệu 
 const int MAX = 100;
 Sach*  dsSach[MAX];
 DocGia dsDocGia[MAX];
 Muon   dsMuon[MAX];
 int soSach = 0, soDocGia = 0, soMuon = 0;
 
-//  LÊ QUANG HUY
-// quản lý sách :
+void themDocGia() {
+    dsDocGia[soDocGia].nhap();
+    soDocGia++;
+}
+
+void hienThiDocGia() {
+    cout << "\nDANH SACH DOC GIA:\n";
+    for (int i = 0; i < soDocGia; i++)
+        dsDocGia[i].xuat();
+}
+
+void hienThiSach() {
+    cout << "\nDANH SACH SACH:\n";
+    for (int i = 0; i < soSach; i++)
+        dsSach[i]->xuat();
+}
+
+// NGUYEN ANH VU
+// Hàm xử lý sách + mượn trả
+void xoaSach() {
+    string ma;
+    cin.ignore();
+    cout << "Nhap ma sach can xoa: "; getline(cin, ma);
+    for (int i = 0; i < soSach; i++) {
+        if (dsSach[i]->getMa() == ma) {
+            delete dsSach[i];
+            for (int j = i; j < soSach - 1; j++)
+                dsSach[j] = dsSach[j + 1];
+            soSach--;
+            cout << "Da xoa!\n";
+            return;
+        }
+    }
+    cout << "Khong tim thay!\n";
+}
+
+void timSach() {
+    string ten;
+    cin.ignore();
+    cout << "Nhap ten sach: "; getline(cin, ten);
+    bool timThay = false;
+    for (int i = 0; i < soSach; i++) {
+        if (dsSach[i]->getTen().find(ten) != string::npos) {
+            dsSach[i]->xuat();
+            timThay = true;
+        }
+    }
+    if (!timThay)
+        cout << "Khong tim thay sach!\n";
+}
+
 void themSach() {
     int loai;
     do {
@@ -174,57 +235,6 @@ void themSach() {
 
     dsSach[soSach]->nhap();
     soSach++;
-}
-
-void hienThiSach() {
-    cout << "\nDANH SACH SACH:\n";
-    for (int i = 0; i < soSach; i++)
-        dsSach[i]->xuat();
-}
-
-void timSach() {
-    string ten;
-    cin.ignore();
-    cout << "Nhap ten sach: "; getline(cin, ten);
-    bool timThay = false;
-    for (int i = 0; i < soSach; i++) {
-        if (dsSach[i]->getTen().find(ten) != string::npos) {
-            dsSach[i]->xuat();
-            timThay = true;
-        }
-    }
-    if (!timThay)
-        cout << "Khong tim thay sach!\n";
-}
-
-void xoaSach() {
-    string ma;
-    cin.ignore();
-    cout << "Nhap ma sach can xoa: "; getline(cin, ma);
-    for (int i = 0; i < soSach; i++) {
-        if (dsSach[i]->getMa() == ma) {
-            delete dsSach[i];
-            for (int j = i; j < soSach - 1; j++)
-                dsSach[j] = dsSach[j + 1];
-            soSach--;
-            cout << "Da xoa!\n";
-            return;
-        }
-    }
-    cout << "Khong tim thay!\n";
-}
-
-//  NGUYỄN ANH VŨ
-// độc giả + mượn trả
-void themDocGia() {
-    dsDocGia[soDocGia].nhap();
-    soDocGia++;
-}
-
-void hienThiDocGia() {
-    cout << "\nDANH SACH DOC GIA:\n";
-    for (int i = 0; i < soDocGia; i++)
-        dsDocGia[i].xuat();
 }
 
 void muonSach() {
@@ -271,7 +281,7 @@ void hienThiMuon() {
         dsMuon[i].xuat();
 }
 
-//  NGUYỄN MẠNH CƯỜNG
+// NGUYEN MANH CUONG
 // main
 int main() {
     int chon;
@@ -291,24 +301,15 @@ int main() {
         cin >> chon;
 
         switch (chon) {
-            case 1: themSach();      
-            break;
-            case 2: hienThiSach();   
-            break;
-            case 3: xoaSach();       
-            break;
-            case 4: timSach();       
-            break;
-            case 5: themDocGia();    
-            break;
-            case 6: hienThiDocGia(); 
-            break;
-            case 7: muonSach();      
-            break;
-            case 8: traSach();       
-            break;
-            case 9: hienThiMuon();   
-            break;
+            case 1: themSach();      break;
+            case 2: hienThiSach();   break;
+            case 3: xoaSach();       break;
+            case 4: timSach();       break;
+            case 5: themDocGia();    break;
+            case 6: hienThiDocGia(); break;
+            case 7: muonSach();      break;
+            case 8: traSach();       break;
+            case 9: hienThiMuon();   break;
             case 0: cout << "Thoat!\n"; break;
             default: cout << "Lua chon khong hop le!\n";
         }
