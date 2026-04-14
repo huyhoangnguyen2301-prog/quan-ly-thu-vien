@@ -31,16 +31,16 @@ public:
     }
     virtual void xuat() {
         cout << "- Ma: "       << ma
-             << " - Ten: "     << ten
-             << " - Tac gia: " << tacgia
-             << " - SL: "      << soluong;
+            << " - Ten: "     << ten
+            << " - Tac gia: " << tacgia
+            << " - SL: "      << soluong;
     }
     string getMa() {
-         return ma; }
+        return ma; }
     string getTen() {
-         return ten; }
+        return ten; }
     int getSoLuong(){
-         return soluong; }
+        return soluong; }
     void setSoLuong(int sl) { soluong = sl; }
     virtual ~Sach() {}
 };
@@ -258,7 +258,8 @@ void muonSach() {
 void traSach() {
     string maSach;
     cin.ignore();
-    cout << "Nhap ma sach tra: "; getline(cin, maSach);
+    cout << "Nhap ma sach tra: ";
+    getline(cin, maSach);
     for (int i = 0; i < soMuon; i++) {
         if (dsMuon[i].getMaSach() == maSach) {
             for (int j = 0; j < soSach; j++) {
@@ -301,16 +302,26 @@ int main() {
         cin >> chon;
 
         switch (chon) {
-            case 1: themSach();      break;
-            case 2: hienThiSach();   break;
-            case 3: xoaSach();       break;
-            case 4: timSach();       break;
-            case 5: themDocGia();    break;
-            case 6: hienThiDocGia(); break;
-            case 7: muonSach();      break;
-            case 8: traSach();       break;
-            case 9: hienThiMuon();   break;
-            case 0: cout << "Thoat!\n"; break;
+            case 1: themSach();      
+            break;
+            case 2: hienThiSach();   
+            break;
+            case 3: xoaSach();       
+            break;
+            case 4: timSach();       
+            break;
+            case 5: themDocGia();    
+            break;
+            case 6: hienThiDocGia(); 
+            break;
+            case 7: muonSach();      
+            break;
+            case 8: traSach();       
+            break;
+            case 9: hienThiMuon();   
+            break;
+            case 0: cout << "Thoat!\n"; 
+            break;
             default: cout << "Lua chon khong hop le!\n";
         }
     } while (chon != 0);
